@@ -25,8 +25,7 @@ DicerApi.prototype.post = function (){
         headers: {
             "Accept" : "application/json",
             "Content-Type" : "application/json"
-        }}).then(response => response.json()).then( response => console.log(response.result.random.data[0])
-    );
+        }}).then(response => response.json()).then( response => console.log(response.result.random.data[0]));
 };
 
 
