@@ -1,0 +1,27 @@
+#game-container {
+    position : fixed;
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 280px;
+}
+
+#image-container {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+}
+
+
+#draw-button {
+
+    position: relative;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+}
+
+#title {
+    text-align: center;
+}
