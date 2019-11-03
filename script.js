@@ -55,6 +55,8 @@ DicerApi.prototype.runDraw = function(){
 
 };
 
+
+
 const button = document.querySelector("#draw-button");
 
 button.addEventListener("click", function(){
