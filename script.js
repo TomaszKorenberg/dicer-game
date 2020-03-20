@@ -18,7 +18,7 @@ class DicerApi {
             "max": 6   //to this number
         };
 
-        return fetch(this.url, {
+        this.data = fetch(this.url, {
             method: "POST",
             body: JSON.stringify({
                 "jsonrpc": this.jsonrpc,
@@ -31,39 +31,23 @@ class DicerApi {
                 "Content-Type": "application/json"
             }
         }).then(response => response.json()).then(response => diceNumber = response.result.random.data[0]);
+        return this.data;
     };
 
     diceImage(number) {
         return "img/dice" + number + ".png"
     };
 
-    runDraw = function () {
-
-        diceNumber = dicerApi.post();
+    runDraw = async function () {
         this.imageContainer.innerHTML = "Losowanie...";
-
-        setTimeout(function () {
-            this.imageContainer.innerHTML = "<img src=\"" + dicerApi.diceImage(diceNumber) + "\">";
-        }.bind(this), 1000);
-
+        diceNumber = await dicerApi.post();
+        this.imageContainer.innerHTML = "<img alt=\"Dice image\" src=\"" + dicerApi.diceImage(diceNumber) + "\">";
     };
 
 }
 
 
 const dicerApi = new DicerApi();
-
-
-const promise = new Promise(function (resolve, reject) {
-    setTimeout(function () {
-        resolve("OK");
-    }, 1000)
-});
-
-promise.then(function (resp) {
-    console.log(resp)
-});
-
 
 const button = document.querySelector("#draw-button");
 
